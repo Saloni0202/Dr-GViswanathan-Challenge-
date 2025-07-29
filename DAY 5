@@ -1,0 +1,31 @@
+56. Merge Intervals
+
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> ans;
+
+        ranges::sort(intervals);
+
+        for(const vector<int>& interval : intervals)
+          if(ans.empty() || ans.back()[1]<interval[0])
+            ans.push_back(interval);
+          else
+            ans.back()[1] = max(ans.back()[1], interval[1]);
+        
+        return ans;
+        
+    }
+};
+
+
+104. Maximum Depth of Binary Tree
+
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root == nullptr)
+          return 0;
+        return 1 + max(maxDepth(root -> left), maxDepth(root->right));
+    }
+};
