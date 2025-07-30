@@ -1,0 +1,33 @@
+53. Maximum Subarray
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        vector<int> dp(nums.size());
+
+        dp[0] = nums[0];
+        for(int i = 1; i<nums.size(); ++i)
+          dp[i] = max(nums[i], dp[i-1] + nums[i]);
+
+        return ranges::max(dp);
+        
+    }
+};
+
+
+206. Reverse Linked List
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(!head || !head -> next)
+            return head;
+
+        ListNode* newHead = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return newHead;
+
+        
+    }
+};
