@@ -1,0 +1,52 @@
+339B. Xenia and Ringroad
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    long long n, m, t = 0, p = 0;
+    cin>>n>>m;
+    while(m--){
+        long long x;
+        cin>>x;
+        x--;
+        if(x<p){
+            t += n - abs(p-x);
+        }
+        else{
+            t += abs(x-p);
+        }
+        p = x;
+    }
+    cout<<t<<'\n';
+}
+
+
+469A. I Wanna Be the Guy
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n, p, q, i, intArray[10000], count = 0;
+    cin>>n;
+    cin>>p;
+    for(i = 0; i<p; i++)
+    {
+        cin>>intArray[i];
+    }
+    cin>>q;
+    for(i=p; i<(p+q); i++){
+        cin>>intArray[i];
+    }
+    sort(intArray, ((intArray)+(p+q)));
+    for(i = 0; i<(p+q); i++){
+        if(intArray[i] != intArray[i+1])
+        {
+            count++;
+        }
+    }
+    cout<<((count == n) ? "I become the guy." : "Oh, my keyboard!");
+}
