@@ -1,0 +1,70 @@
+109A. Lucky Sum of Digits
+
+#include <cstdio>
+
+int main(){
+
+    long n(0); scanf("%ld", &n);
+
+    long numSevens(-1), numFours(-1), minDigits(1e6);
+
+    for(long testSevens = n / 7; testSevens >= 0; testSevens--)
+    {
+        if((n - 7 * testSevens) % 4 != 0)
+        {
+            continue;
+        }
+        long testFours = (n - 7 * testSevens) / 4;
+        numSevens = testSevens; numFours = testFours; 
+        minDigits = numSevens + numFours;
+        break;
+    }
+    if(numSevens >= 0 && numFours >= 0)
+    {
+        for(int k = 0; k < numFours; k++)
+        {
+            printf("4");
+        }
+        for(int k = 0; k < numSevens; k++)
+        {
+            printf("7");
+        }
+    }
+    else{printf("-1");}
+    puts("");
+    return 0;
+}
+
+
+459B. Pashmak and Flowers
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	long long int n,m,x,c1=0,c2=0,c3;
+	cin>>n;
+	long long a[n];
+	for(int i=0;i<n;i++)
+		cin>>a[i];
+	sort(a,a+n);
+	x=a[0];
+	m=a[n-1];
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]==m)
+		c1++;
+		else if(a[i]==x)
+		c2++;
+		
+	}
+	c3=c1*c2;
+	if(m==x)
+	{
+		cout<<"0"<<" "<<((n*(n-1))/2);
+	}
+	else
+	{
+		cout<<(m-x)<<" "<<c3;
+	}
+}
