@@ -1,0 +1,49 @@
+466A. Cheap Travel
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n, m, a, b;
+    cin>>n>>m>>a>>b;
+    if(m*a<=b){
+        cout<<n*a<<endl;
+    }
+    else{
+        cout<<(n/m)*b+min((n%m)*a,b)<<endl;
+    }
+}
+
+
+
+1328A. Divisibility Problem
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int t;
+cin>>t;
+
+while(t--){
+	
+	int x,y;
+	cin>>x>>y;
+	
+	if(x%y==0) 
+	{
+	cout<<0<<endl;
+	}
+	else {
+	
+	int w=x%y;
+	
+	cout<<y-w<<endl;
+	
+	}
+}
+
+
+	return 0;
+}
